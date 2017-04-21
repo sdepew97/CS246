@@ -1,0 +1,1 @@
+#define NUMCHARS 256
