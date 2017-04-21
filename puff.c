@@ -45,6 +45,7 @@ int main(int argc, char *argv[]){
 	
 	fread(char_counts, sizeof(int), NUMCHARS, input); 
 	
+	//check that char_counts is being filled with something :)
 	for(int i=0; i<NUMCHARS; i++){
 		printf("Character: %c Count: %d\n", i, char_counts[i]); 
 	}
