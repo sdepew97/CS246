@@ -5,8 +5,6 @@
 
 huff_tree_node* get_smallest(huff_tree_node *leaves[NUMCHARS], int *array_size); 
 
-void inorder(huff_tree_node* root); 
-
-void preorder(huff_tree_node* root); 
+int get_bit(int *bits_read, int *current); 
 
 void free_memory(huff_tree_node *root);  
