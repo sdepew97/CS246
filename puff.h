@@ -4,8 +4,8 @@
 #include "huff_tree_node.h"
 
 /*
-Name: 
-Resources: 
+Name: Sarah Depew
+Resources: Professor, TA, Kennedy, Trista, Ruby, Sarah K., Amanda, and textbook (I know I did some web research, but I do not distinctly remember implementing details from the resources, but I acknowledge them anyway)
 */
 
 //get the smallest leaf from the array and need to decrement size of array outside!! otherwise function malfunctions
