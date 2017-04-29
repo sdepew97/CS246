@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <check.h>
 #include "huff_tree_node.h"
 
 /*
