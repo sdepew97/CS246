@@ -12,7 +12,6 @@ int main(int argc, char *argv[]){
 	
 	//check there are enough input files
 	if(argc!=3){
-		printf("%d\n", argc); 
 		printf("Sorry, there are not enough input files. Please use <program> <input file> <export file>.\n");
 		return -1; 
 	}
@@ -32,16 +31,14 @@ int main(int argc, char *argv[]){
 	//get counts of characters in input file
 	count_chars(counts, input); 
 	
-	//array min_heap = array_new();
 	huff_tree_node *leaves[NUMCHARS] = {};
 	 
 	//the number of leaves in the tree
 	int array_leaves_size = 0; 
 	
+	//create the leaves and put them into an array data structure
 	for(int i=0; i<NUMCHARS; i++){
 		if(counts[i]>0){
-			//create a tree nodes and put into the min heap
-			//array_add(min_heap, new_leaf(i, counts[i], NULL, NULL)); 
 			leaves[array_leaves_size] = new_leaf(i, counts[i], NULL, NULL); 
 			array_leaves_size++; 
 		}
@@ -95,7 +92,6 @@ int main(int argc, char *argv[]){
 		
 		//at this point, values is storing a correct string copy of the huff code for a character
 		for(int j=0; j<(letter_codes[current]->significant); j++){
-			//printf("%c",values_2[j]); 
 			
 			if(values_2[j]=='0'){
 				put_bit(&values, false); 
@@ -165,13 +161,14 @@ huff_tree_node* get_smallest(huff_tree_node *leaves[NUMCHARS], int *array_size){
 //gets the codes for the tree recursively and if it is found then updates the appropriate code information
 void codes_for_tree(huff_tree_node *root, int val, int count, char_code *codes[NUMCHARS]){
 	if(root){ 
-		if(root->ch>0){
+		if(root->ch>=0){
+			//printf("Character Visited: %d\n", root->ch); 
 			codes[root->ch]->code = val;
 			codes[root->ch]->significant = count; 
 		} 
 
 		codes_for_tree(root->left, val<<1, count+1, codes);
-		codes_for_tree(root->right, val<<1|1, count+1, codes);
+		codes_for_tree(root->right, (val<<1)|1, count+1, codes);
 	}
 }
 

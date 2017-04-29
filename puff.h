@@ -15,4 +15,4 @@ huff_tree_node* get_smallest(huff_tree_node *leaves[NUMCHARS], int *array_size);
 int get_bit(int *bits_read, int *current); 
 
 //Frees all the memory used in this part of the program
-void free_memory(huff_tree_node *root);  
+void free_memory(huff_tree_node *root); 

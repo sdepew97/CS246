@@ -11,7 +11,6 @@ int main(int argc, char *argv[]){
 	
 	//check there are enough input files
 	if(argc!=3){
-		printf("%d\n", argc); 
 		printf("Sorry, there are not enough input files. Please use <program> <input file> <export file>.\n");
 		return -1; 
 	}
@@ -59,7 +58,7 @@ int main(int argc, char *argv[]){
 		array_leaves_size++; 		
 		num--; 
 	}
-		
+	
 	//read the characters from the input file 
 		
 	//current character read from the file :)
@@ -73,19 +72,20 @@ int main(int argc, char *argv[]){
 	
 	//read and print out the codes
 	while(current!=EOF&&chars_read<leaves[0]->freq){
-		for(int i=0; i<8&&chars_read<leaves[0]->freq&&current_node!=NULL; i++){
+		for(int i=0; i<8&&chars_read<leaves[0]->freq; i++){
 			int current_bit = get_bit(&values_read, &current);
+			
 			num_bits_gotten++; 
 		
-			if(current_node!=NULL && current_bit==0){
+			if(current_bit==0){
 				current_node = current_node->left;
 			}
 			
-			else if(current_node!=NULL && current_bit==1){
+			else if(current_bit==1){
 				current_node = current_node->right;
 			}
 			
-			if(current_node!=NULL && current_node->ch>0){
+			if(current_node->ch>=0){
 				fprintf(output,"%c", current_node->ch);
 				current_node = leaves[0]; //reset to start traversing tree, again and get next instruction 
 				chars_read++; 
@@ -99,7 +99,7 @@ int main(int argc, char *argv[]){
 	free_memory(leaves[0]); 
 }
 
-//get the smallest leaf from the array and need to decrement size of array outside!! otherwise function malfunctions
+//get the smallest leaf from the array and need to decrement size of array outside
 huff_tree_node* get_smallest(huff_tree_node *leaves[NUMCHARS], int *array_size){
 	//get smallest to return and shift over the values
 	huff_tree_node *smallest_leaf = leaves[0];
