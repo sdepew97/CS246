@@ -162,7 +162,6 @@ huff_tree_node* get_smallest(huff_tree_node *leaves[NUMCHARS], int *array_size){
 void codes_for_tree(huff_tree_node *root, int val, int count, char_code *codes[NUMCHARS]){
 	if(root){ 
 		if(root->ch>=0){
-			//printf("Character Visited: %d\n", root->ch); 
 			codes[root->ch]->code = val;
 			codes[root->ch]->significant = count; 
 		} 
